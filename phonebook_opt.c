@@ -29,3 +29,18 @@ unsigned int BKDRHash(char *str)
 
     return (hash & 0x7FFFFFFF);
 }
+
+unsigned int _BKDRHash(char lastName[], int hash_table_size)
+{
+
+    unsigned int seed = 131;
+    unsigned int hash = 0;
+    int i = 0;
+    while(lastName[i] != '\0')
+    {
+        hash = hash * seed + lastName[i];
+        i++;
+    }
+
+    return hash %= hash_table_size;
+}
